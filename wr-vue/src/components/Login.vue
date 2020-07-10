@@ -4,7 +4,7 @@
         <input type="email" class="form-control"   placeholder="Enter email" v-model="loginFrom.email">
         <label>密码</label>
         <input type="password" class="form-control" placeholder="Password" v-model="loginFrom.password">
-        <button type="submit" class="btn btn-primary" v-on="login">登录</button>
+        <button class="btn btn-primary" v-on:click="login">登录</button>
     </div>
 </template>
 
@@ -39,9 +39,8 @@ export default {
                 }
             })
             .catch(failResponse => {
-
             })
         }
-    },
+    }
 }
 </script>
