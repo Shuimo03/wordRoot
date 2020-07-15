@@ -1,11 +1,34 @@
 <template>
-    <div>      
-        <label>邮箱登录</label>
-        <input type="email" class="form-control"   placeholder="Enter email" v-model="loginFrom.email">
-        <label>密码</label>
-        <input type="password" class="form-control" placeholder="Password" v-model="loginFrom.password">
-        <button class="btn btn-primary" v-on:click="login">登录</button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="card rounded shadow shadow-sm">
+                        <div class="card-header">
+                            <h3 class="mb-0">登录</h3>
+                        </div>
+                        <div class="card-body">
+                                <div class="form-group">
+                                    <label for="uname1">电子邮箱</label>
+                                    <input type="email" class="form-control form-control-lg rounded-0" v-model="loginFrom.email">
+                                </div>
+                                <div class="form-group">
+                                    <label>密码</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" v-model="loginFrom.password">
+                                </div>
+                        <router-link target="_blank" :to="{path:'/signup'}">
+                        <button type="submit" class="btn btn-success btn-lg float-right">没有账号？注册</button>
+                        </router-link>
+                        </div>
+                         <button type="submit" class="btn btn-success btn-lg float-right" v-on:click = "login">登录</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
     </div>
+</div>
+<!--/container-->
 </template>
 
 <!--
