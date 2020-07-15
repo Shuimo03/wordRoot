@@ -1,4 +1,4 @@
-package worldroot.wr.result;
+package wordroot.wr.result;
 
 /**
  * @author wuliang

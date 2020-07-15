@@ -1,4 +1,4 @@
-package worldroot.wr;
+package wordroot.wr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
