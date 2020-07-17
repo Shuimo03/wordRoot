@@ -17,3 +17,7 @@ WordRoot是一个分析单词词根词缀的网站， 当你输入一个单词�
 3. MySQL
 4. redis
 5. Mybatis
+
+## 爬虫
+
+爬虫用的是python+scrapy，主要是几个词典的网站，把这些词典里面的单词给抓取下来。
