@@ -51,6 +51,7 @@ public class User {
         return gmt_create;
     }
 
+    public void setGmt_create(Date gmt_create) { this.gmt_create = gmt_create; }
 
     public void setGmt_modified(Date gmt_modified) {
         this.gmt_modified = gmt_modified;
