@@ -7,6 +7,13 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+
+    {
+      path:'/',
+      name:'AppIndex',
+      component:AppIndex
+    },
+
     {
       path: '/login',
       name: 'Login',
@@ -17,12 +24,6 @@ export default new Router({
         path: '/signup',
         name: 'SignUp',
         component:SignUp
-    },
-
-    {
-      path:'/index',
-      name:'AppIndex',
-      component:AppIndex
     }
   ]
 })
