@@ -11,8 +11,9 @@ public class Result {
     private  String message;
     private Object result;
 
-   public Result(int code){
+   public Result(int code,String message,Object result){
         this.code = code;
         this.message = message;
+        this.result =result;
    }
 }

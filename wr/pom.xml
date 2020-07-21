@@ -70,6 +70,16 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core
+			给密码加密用
+		-->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<plugins>

@@ -33,10 +33,11 @@ public interface UserMapper {
 
     /**
      * 更新用户
+     * @return
      */
 
     @Update("update user set name = #{name},email = #{email},password = #{password}, gmt_create = #{gmt_create}, gmt_modified = #{gmt_modified} where id = #{id}")
-    void update(User user);
+    User update(User user);
 
     /**
      * 删除用户

@@ -13,7 +13,6 @@ import java.util.Date;
  * auctor:wuliang
  * date:2020/7/20
  */
-
 @RestController
 @RequestMapping("/")
 public class UserController {

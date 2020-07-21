@@ -9,11 +9,13 @@ import java.util.Date;
 
 public class User {
     int id;
-    String name;
-    String email;
-    String password;
-    Date gmt_create;
-    Date gmt_modified;
+    private String name;
+    private String email;
+    private String password;
+    private Date gmt_create;
+    private Date gmt_modified;
+    private String salt;
+    private  boolean enabled;
 
     public int getId() {
         return id;
@@ -47,11 +49,31 @@ public class User {
         this.password = password;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public Date getGmt_create() {
         return gmt_create;
     }
 
     public void setGmt_create(Date gmt_create) { this.gmt_create = gmt_create; }
+
+    public Date getGmt_modified(){
+        return gmt_modified;
+    }
 
     public void setGmt_modified(Date gmt_modified) {
         this.gmt_modified = gmt_modified;
