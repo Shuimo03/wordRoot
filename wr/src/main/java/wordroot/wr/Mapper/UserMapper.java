@@ -17,6 +17,12 @@ public interface UserMapper {
     User getId(int id);
 
     /**
+     * 根据用户名查找用户
+     */
+
+    @Select()
+
+    /**
      * 查询所有用户
      */
     @Select("select * from user")

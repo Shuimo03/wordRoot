@@ -17,7 +17,7 @@
           <li class="nav-item"><a class="nav-link">语法检查</a></li>
           </router-link>
 
-          <router-link target = "_blank" :to="{path:'/'}">
+          <router-link target = "_blank" :to="{path:'/about'}">
           <li class="nav-item"><a class="nav-link">关于</a></li>
           </router-link>
         </ul>

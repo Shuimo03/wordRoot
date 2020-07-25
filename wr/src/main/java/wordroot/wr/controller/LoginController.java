@@ -37,7 +37,7 @@ public class LoginController {
         usernamePasswordToken.setRememberMe(true);
         try {
             subject.login(usernamePasswordToken);
-            User user = userService.
+            User user = userService.findUserId(userName);
         }
     }
 }

@@ -9,6 +9,7 @@ import wordroot.wr.Mapper.UserMapper;
 import wordroot.wr.bean.User;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @auctor wuliang
@@ -20,6 +21,16 @@ public class UserService {
 
     @Autowired
     UserMapper userMapper;
+
+    public boolean isExist(int id){
+        User user = userMapper.getId(id);
+        return  null != user;
+    }
+
+    public User findUserId(int id){
+        return userMapper.getId(id);
+    }
+
 
     public int register(User user){
         String userName = user.getName();
