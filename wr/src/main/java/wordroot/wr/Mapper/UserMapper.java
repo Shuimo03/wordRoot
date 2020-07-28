@@ -20,7 +20,8 @@ public interface UserMapper {
      * 根据用户名查找用户
      */
 
-    @Select()
+    @Select("select * from user where name = #{name}")
+    User getUserName(String user);
 
     /**
      * 查询所有用户

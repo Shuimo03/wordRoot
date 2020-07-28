@@ -31,6 +31,10 @@ public class UserService {
         return userMapper.getId(id);
     }
 
+    public User findUserName(String name){
+        return  userMapper.getUserName(name);
+    }
+
 
     public int register(User user){
         String userName = user.getName();
