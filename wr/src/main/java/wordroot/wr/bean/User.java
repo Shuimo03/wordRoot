@@ -1,5 +1,8 @@
 package wordroot.wr.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
 /**
@@ -7,10 +10,15 @@ import java.util.Date;
  * date:2020/7/15
  */
 
+@ApiModel(description = "用户类")
+
 public class User {
     int id;
+    @ApiModelProperty(value = "用户名",example = "test")
     private String name;
+    @ApiModelProperty(value = "邮件",example = "test@qq.com or test@gmail.com")
     private String email;
+    @ApiModelProperty(value = "密码",example = "不能少于16位，要大小写混写加数字,Test17787rrwsd")
     private String password;
     private Date gmt_create;
     private Date gmt_modified;

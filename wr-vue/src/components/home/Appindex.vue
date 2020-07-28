@@ -13,8 +13,12 @@
           <li class="nav-item"><a class="nav-link">注册</a></li>
           </router-link>
 
-           <router-link target = "_blank" :to="{path:'/'}">
+           <router-link target = "_blank" :to="{path:'/grammar'}">
           <li class="nav-item"><a class="nav-link">语法检查</a></li>
+          </router-link>
+
+          <router-link target = "_blank" :to="{path : '/article'}">
+          <li class="nav-item"><a class="nav-link">文章检查</a></li>
           </router-link>
 
           <router-link target = "_blank" :to="{path:'/about'}">
@@ -25,8 +29,8 @@
     </nav>
      <form class="form-inline">
        <div class="col-center-block">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="inputSearchWidth">
-          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2" type="search" placeholder="输入单词" aria-label="Search" id="inputSearchWidth">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">查找</button>
        </div>
         </form>
   </div>

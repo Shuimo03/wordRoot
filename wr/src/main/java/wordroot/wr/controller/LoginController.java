@@ -1,5 +1,7 @@
 package wordroot.wr.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -22,6 +24,8 @@ import wordroot.wr.service.UserService;
  * 登录注册两个功能写在一块了
  */
 
+@Api(tags = "用户登录注册")
+
 @RestController
 public class LoginController {
 
@@ -31,6 +35,7 @@ public class LoginController {
     /**
      * 登录功能
      */
+    @ApiOperation("用户登录")
     @PostMapping("/api/login")
     public Result login(@RequestBody User loginUser) {
         String userName = loginUser.getName();
@@ -58,7 +63,7 @@ public class LoginController {
     /**
      * 注册
      */
-
+    @ApiOperation(value = "用户登录")
     @GetMapping("/api/signup")
     public Result signup(@RequestBody User user){
         int status = userService.register(user);
@@ -77,13 +82,16 @@ public class LoginController {
     /**
      * 登出
      */
-
+    @ApiOperation("登出")
     @GetMapping("/api/logout")
     public Result logout(){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
         return ResultFactory.buildSuccessResult("成功登出");
     }
-
-    @GetMapping("")
+    @ApiOperation("身份认证")
+    @GetMapping("/api/authentication")
+    public String authentication(){
+        return "身份认证成功";
+    }
 }
