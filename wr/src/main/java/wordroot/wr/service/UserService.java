@@ -22,6 +22,8 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
+    public List<>
+
     public boolean isExist(int id){
         User user = userMapper.getId(id);
         return  null != user;

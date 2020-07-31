@@ -8,10 +8,7 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 import wordroot.wr.bean.User;
 import wordroot.wr.result.Result;
@@ -27,6 +24,7 @@ import wordroot.wr.service.UserService;
 @Api(tags = "用户登录注册")
 
 @RestController
+@CrossOrigin//解决跨域
 public class LoginController {
 
     @Autowired
@@ -36,7 +34,7 @@ public class LoginController {
      * 登录功能
      */
     @ApiOperation("用户登录")
-    @PostMapping("/api/login")
+    @PostMapping(value = "/api/login")
     public Result login(@RequestBody User loginUser) {
         String userName = loginUser.getName();
         userName = HtmlUtils.htmlEscape(userName);
@@ -63,8 +61,9 @@ public class LoginController {
     /**
      * 注册
      */
-    @ApiOperation(value = "用户登录")
-    @GetMapping("/api/signup")
+    @ApiOperation(value = "用户注册")
+    @GetMapping(value = "/api/signup")
+
     public Result signup(@RequestBody User user){
         int status = userService.register(user);
 
@@ -83,7 +82,7 @@ public class LoginController {
      * 登出
      */
     @ApiOperation("登出")
-    @GetMapping("/api/logout")
+    @GetMapping(value = "/api/logout")
     public Result logout(){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
