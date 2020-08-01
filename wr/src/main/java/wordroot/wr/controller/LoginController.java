@@ -36,19 +36,19 @@ public class LoginController {
     @ApiOperation("用户登录")
     @PostMapping(value = "/api/login")
     public Result login(@RequestBody User loginUser) {
-        String userName = loginUser.getName();
-        userName = HtmlUtils.htmlEscape(userName);
+        String userEmail = loginUser.getEmail();
+        userEmail = HtmlUtils.htmlEscape(userEmail);
 
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userName, loginUser.getPassword());
+        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userEmail, loginUser.getPassword());
         usernamePasswordToken.setRememberMe(true);
         try {
             subject.login(usernamePasswordToken);
-            User user = userService.findUserName(userName);
+            User user = userService.findUserName(userEmail);
             if (!user.isEnabled()) {
                 return ResultFactory.buildFailResult("账号被禁用");
             }
-            return ResultFactory.buildFailResult(userName);
+            return ResultFactory.buildFailResult(userEmail);
         }
         catch (IncorrectCredentialsException e){
             return ResultFactory.buildFailResult("密码错误");

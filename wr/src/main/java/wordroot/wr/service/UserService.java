@@ -38,7 +38,7 @@ public class UserService {
 
 
     public int signup(User user){
-        String userName = user.getName();
+        String userName = user.getUsername();
         String userEmail = user.getEmail();
         String userPassword = user.getPassword();
         Date date = new java.sql.Date(new java.util.Date().getTime());
@@ -49,8 +49,7 @@ public class UserService {
          */
 
         userName = HtmlUtils.htmlEscape(userName);
-        user.setName(userName);
-
+        user.setUsername(userName);
         userEmail = HtmlUtils.htmlEscape(userEmail);
         user.setEmail(userEmail);
 
@@ -91,7 +90,7 @@ public class UserService {
      */
     public void editUser(User user){
         User userID = userMapper.getId(user.getId());
-        userID.setName(user.getName());
+        userID.setUsername(user.getUsername());
         userID.setPassword(user.getPassword());
         userID.setEmail(user.getEmail());
         userID.setGmt_modified(user.getGmt_modified());

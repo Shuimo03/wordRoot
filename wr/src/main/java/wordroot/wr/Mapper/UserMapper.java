@@ -20,7 +20,7 @@ public interface UserMapper {
      * 根据用户名查找用户
      */
 
-    @Select("select * from user where name = #{name}")
+    @Select("select * from user where username = #{username}")
     User getUserName(String user);
 
     /**
@@ -28,14 +28,14 @@ public interface UserMapper {
      */
     @Select("select * from user")
     @Results({
-            @Result(property = "name", column = "name")
+            @Result(property = "username", column = "username")
     })
     List<User> getUserAll();
 
     /**
      * 插入一个新用户
      */
-    @Insert("insert into user(name,email,password,gmt_create,gmt_modified) values(#{name},#{email},#{password},#{gmt_create},#{gmt_modified})")
+    @Insert("insert into user(username,email,password,gmt_create,gmt_modified,salt) values(#{username},#{email},#{password},#{gmt_create},#{gmt_modified}, #{salt})")
     void insert(User user);
 
     /**
@@ -43,7 +43,7 @@ public interface UserMapper {
      * @return
      */
 
-    @Update("update user set name = #{name},email = #{email},password = #{password}, gmt_create = #{gmt_create}, gmt_modified = #{gmt_modified} where id = #{id}")
+    @Update("update user set username = #{username},email = #{email},password = #{password}, gmt_create = #{gmt_create}, gmt_modified = #{gmt_modified} where id = #{id}")
     User update(User user);
 
     /**

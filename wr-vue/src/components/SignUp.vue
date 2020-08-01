@@ -46,37 +46,47 @@
 <script>
 export default {
     data(){
-        return{
-            signUpForm:{
-                username:'',
-                email:'',
-                password:''
-            },
-            responseResult:[]
-        }
+      return {
+        rules:{
+                  username: [{required :true,message:'用户名不能为空',trigger:'blur'}],
+                  email: [{required :true,message:'邮箱不能为空',trigger:'blur'}],
+                  password: [{required :true,message:'密码不能为空',trigger:'blur'}]
+        },
+        checked:true,
+
+        signUpForm:{
+          username:'',
+          email:'',
+          password:''
+        },
+      
+      loading:false
+      }
     },
+
     methods:{
-      signup () {
+      signup(){
         var _this = this
         this.$axios
-          .post('/signup', {
+        .post('/signup',{
             username: this.signUpForm.username,
-            password: this.signUpForm.password,
-            email: this.signUpForm.email
-          })
-          .then(resp => {
-            if (resp.data.code === 200) {
-              this.$alert('注册成功', '提示', {
-                confirmButtonText: '确定'
-              })
-              _this.$router.replace('/login')
-            } else {
-              this.$alert(resp.data.message, '提示', {
-                confirmButtonText: '确定'
-              })
-            }
-          })
-          .catch(failResponse => {})
+            email:  this.signUpForm.email,
+            password: this.signUpForm.password
+        })
+        .then(resp => {
+              if(resp.data.code === 200){
+                this.$alert('注册成功','提示',{
+                    confirmButtonText: '确定'
+                })
+                _this.$router.replace('/login')
+              }
+              else{
+                this.$alert(resp.data.message, '提示',{
+                   confirmButtonText: '确定'
+                })
+              }
+        })
+        .catch(failResponse => {})
       }
     }
 }

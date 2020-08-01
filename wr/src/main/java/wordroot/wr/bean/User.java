@@ -15,7 +15,7 @@ import java.util.Date;
 public class User {
     int id;
     @ApiModelProperty(value = "用户名",example = "test")
-    private String name;
+    private String username;
     @ApiModelProperty(value = "邮件",example = "test@qq.com or test@gmail.com")
     private String email;
     @ApiModelProperty(value = "密码",example = "不能少于16位，要大小写混写加数字,Test17787rrwsd")
@@ -33,13 +33,8 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getUsername(){return username;}
+    public void setUsername(String username){this.username = username;}
 
     public String getEmail() {
         return email;
