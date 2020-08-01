@@ -22,7 +22,6 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-    public List<>
 
     public boolean isExist(int id){
         User user = userMapper.getId(id);
@@ -38,12 +37,11 @@ public class UserService {
     }
 
 
-    public int register(User user){
+    public int signup(User user){
         String userName = user.getName();
         String userEmail = user.getEmail();
         String userPassword = user.getPassword();
         Date date = new java.sql.Date(new java.util.Date().getTime());
-
         user.setGmt_create(date);
         user.setGmt_modified(date);
         /**
@@ -54,7 +52,9 @@ public class UserService {
         user.setName(userName);
 
         userEmail = HtmlUtils.htmlEscape(userEmail);
-        user.setName(userEmail);
+        user.setEmail(userEmail);
+
+        user.setEnabled(true);
 
         if(userName.equals("") || userPassword.equals("")){
             return 0;

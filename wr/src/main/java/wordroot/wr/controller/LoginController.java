@@ -62,10 +62,10 @@ public class LoginController {
      * 注册
      */
     @ApiOperation(value = "用户注册")
-    @GetMapping(value = "/api/signup")
+    @PostMapping(value = "/api/signup")
 
     public Result signup(@RequestBody User user){
-        int status = userService.register(user);
+        int status = userService.signup(user);
 
         switch (status){
             case 0:

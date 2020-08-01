@@ -23,9 +23,6 @@ public  class UserController{
     @Autowired
     UserService userService;
 
-    @GetMapping("/api/admin/user")
-    public Result listUsers(){
-        return ResultFactory.buildSuccessResult(userService)
-    }
+
 
 }
