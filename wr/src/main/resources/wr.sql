@@ -16,6 +16,159 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admin_menu`
+--
+
+DROP TABLE IF EXISTS `admin_menu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin_menu` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `path` varchar(64) DEFAULT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `name_zh` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `component` varchar(64) DEFAULT NULL,
+  `parent_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_menu`
+--
+
+LOCK TABLES `admin_menu` WRITE;
+/*!40000 ALTER TABLE `admin_menu` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin_menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `admin_permission`
+--
+
+DROP TABLE IF EXISTS `admin_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin_permission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `desc_` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_permission`
+--
+
+LOCK TABLES `admin_permission` WRITE;
+/*!40000 ALTER TABLE `admin_permission` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `admin_role`
+--
+
+DROP TABLE IF EXISTS `admin_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin_role` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `name_zh` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_role`
+--
+
+LOCK TABLES `admin_role` WRITE;
+/*!40000 ALTER TABLE `admin_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `admin_role_menu`
+--
+
+DROP TABLE IF EXISTS `admin_role_menu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin_role_menu` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `rid` int DEFAULT NULL,
+  `mid` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_role_menu`
+--
+
+LOCK TABLES `admin_role_menu` WRITE;
+/*!40000 ALTER TABLE `admin_role_menu` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin_role_menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `admin_role_permission`
+--
+
+DROP TABLE IF EXISTS `admin_role_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin_role_permission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `rid` int DEFAULT NULL,
+  `pid` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_role_permission_role_1` (`rid`),
+  KEY `fk_role_permission_permission_1` (`pid`)
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_role_permission`
+--
+
+LOCK TABLES `admin_role_permission` WRITE;
+/*!40000 ALTER TABLE `admin_role_permission` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin_role_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `admin_user_role`
+--
+
+DROP TABLE IF EXISTS `admin_user_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin_user_role` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `uid` int DEFAULT NULL,
+  `rid` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_operator_role_operator_1` (`uid`),
+  KEY `fk_operator_role_role_1` (`rid`)
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_user_role`
+--
+
+LOCK TABLES `admin_user_role` WRITE;
+/*!40000 ALTER TABLE `admin_user_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin_user_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `administrator`
 --
 
@@ -182,4 +335,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-28 21:23:35
+-- Dump completed on 2020-08-03 15:21:01
