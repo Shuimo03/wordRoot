@@ -24,7 +24,6 @@ import wordroot.wr.service.UserService;
 @Api(tags = "用户登录注册")
 
 @RestController
-@CrossOrigin//解决跨域
 public class LoginController {
 
     @Autowired
