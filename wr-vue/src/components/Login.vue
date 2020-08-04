@@ -37,7 +37,7 @@
   因为设置了默认的URL，所以请求发到了http://localhost:8443/api/login
   这个位置在main.js中可以修改。
 -->
-<script>
+<script lang = "ts">
 export default {
     name: 'Login',
     data() {
