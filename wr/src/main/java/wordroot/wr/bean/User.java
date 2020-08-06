@@ -10,7 +10,7 @@ import java.util.Date;
  * date:2020/7/15
  */
 
-@ApiModel(description = "用户类")
+@ApiModel(description = "用户")
 
 public class User {
     int id;
@@ -23,6 +23,10 @@ public class User {
     private Date gmt_create;
     private Date gmt_modified;
     private String salt;
+    private String word;
+    private String root;
+    private String cn_interpretation;
+    private String en_interpretation;
     private  boolean enabled;
 
     public int getId() {
@@ -58,6 +62,39 @@ public class User {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public String getWord(){
+        return  word;
+    }
+
+    public void setWord(String word){
+        this.word = word;
+    }
+
+
+    public String getRoot(){
+        return root;
+    }
+
+    public void setRoot(String root){
+        this.root = root;
+    }
+
+    public String getCn_interpretation(){
+        return cn_interpretation;
+    }
+
+    public void setCn_interpretation(String cn_interpretation) {
+        this.cn_interpretation = cn_interpretation;
+    }
+
+    public String getEn_interpretation(){
+        return en_interpretation;
+    }
+
+    public void setEn_interpretation(String en_interpretation) {
+        this.en_interpretation = en_interpretation;
     }
 
     public boolean isEnabled() {
