@@ -6,49 +6,31 @@ import wordroot.wr.bean.User;
 import java.util.List;
 
 /**
- * auctor:wuliang
- * date:2020/7/20
+ * @auctor:wuliang
+ * @date:2020/7/20
+ * @updateDate 2020/8/6
+ * 之前是作为一个测试mybatis有没有搭配好，所以在设计上出现了问题。
+ * 用户功能：修改信息/收藏单词词根/删除单词词根
  */
 public interface UserMapper {
-    /**
-     * 根据id查找用户
-     */
-    @Select("select * from user where id = #{id}")
-    User getId(int id);
+    /*收藏单词*/
+    @Insert("insert into user (word,cn_interpretation,en_interpretation) values(#{word},#{cn_interpretation},#{en_interpretation})")
+    void insertWord(User user);
+    /*更新单词*/
+    @Update("update user set word = #{word},cn_interpretation = #{cn_interpretation},en_interpretation = {en_interpretation} where username = #{username}")
+    User updateWord(User user);
+    /*收藏词根*/
+    @Insert("insert into user(root) values (#{root})")
+    void insertRoot(User user);
 
-    /**
-     * 根据用户名查找用户
-     */
-
-    @Select("select * from user where username = #{username}")
-    User getUserName(String user);
-
-    /**
-     * 查询所有用户
-     */
-    @Select("select * from user")
-    @Results({
-            @Result(property = "username", column = "username")
-    })
-    List<User> getUserAll();
-
-    /**
-     * 插入一个新用户
-     */
-    @Insert("insert into user(username,email,password,gmt_create,gmt_modified,salt) values(#{username},#{email},#{password},#{gmt_create},#{gmt_modified}, #{salt})")
-    void insert(User user);
-
-    /**
-     * 更新用户
-     * @return
-     */
-
-    @Update("update user set username = #{username},email = #{email},password = #{password}, gmt_create = #{gmt_create}, gmt_modified = #{gmt_modified} where id = #{id}")
+    /*更新词根*/
+    @Update("update user set root = #{root}")
     User update(User user);
+    /*删除词根*/
+    @Delete("delete from user where username = #{username}")
+    void delete(String username);
 
-    /**
-     * 删除用户
-     */
-    @Delete("delete from user where id = #{id}")
-    void delete(int id);
+    /*修改密码邮箱用户名*/
+    @Update("update user set username = #{username},email = #{email},password = #{password}, gmt_create = #{gmt_create}, gmt_modified = #{gmt_modified} where id = #{id}")
+    User updateUser(User user);
 }

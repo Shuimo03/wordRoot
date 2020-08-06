@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.HtmlUtils;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
-import wordroot.wr.Mapper.UserMapper;
+import wordroot.wr.Mapper.AdminMapper;
 import wordroot.wr.bean.User;
 
 import java.util.Date;
@@ -20,20 +20,20 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    UserMapper userMapper;
+    AdminMapper adminMapper;
 
 
     public boolean isExist(int id){
-        User user = userMapper.getId(id);
+        User user = adminMapper.getId(id);
         return  null != user;
     }
 
     public User findUserId(int id){
-        return userMapper.getId(id);
+        return adminMapper.getId(id);
     }
 
     public User findUserName(String name){
-        return  userMapper.getUserName(name);
+        return  adminMapper.getUserName(name);
     }
 
 
@@ -69,7 +69,7 @@ public class UserService {
         user.setSalt(encodeedPasssword);
 
 
-        userMapper.insert(user);
+        adminMapper.insert(user);
 
         return 1;
     }
@@ -80,21 +80,21 @@ public class UserService {
      */
 
     public void updateUserStatus(User user){
-        User userID = userMapper.update(user);
+        User userID = adminMapper.update(user);
         userID.setEnabled(userID.isEnabled());
-        userMapper.insert(userID);
+        adminMapper.insert(userID);
     }
 
     /**
      * 编辑用户信息
      */
     public void editUser(User user){
-        User userID = userMapper.getId(user.getId());
+        User userID = adminMapper.getId(user.getId());
         userID.setUsername(user.getUsername());
         userID.setPassword(user.getPassword());
         userID.setEmail(user.getEmail());
         userID.setGmt_modified(user.getGmt_modified());
-        userMapper.insert(user);
+        adminMapper.insert(user);
     }
 
     /**
@@ -102,6 +102,6 @@ public class UserService {
      */
 
     public void deteleById(int id){
-        userMapper.delete(id);
+        adminMapper.delete(id);
     }
 }
