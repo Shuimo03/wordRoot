@@ -27,7 +27,7 @@ public interface UserMapper {
     @Update("update user set root = #{root}")
     User update(User user);
     /*删除词根*/
-    @Delete("delete from user where username = #{username}")
+    @Delete("delete from user where root = #{root}")
     void delete(String username);
 
     /*修改密码邮箱用户名*/
