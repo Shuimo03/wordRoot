@@ -12,4 +12,5 @@ public interface AdminPermissionMapper {
 
     @Select("select * from user where id = #{id}")
     User findById(int id);
+
 }

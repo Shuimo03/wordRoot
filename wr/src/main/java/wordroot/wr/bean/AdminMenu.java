@@ -1,5 +1,7 @@
 package wordroot.wr.bean;
 
+import java.util.List;
+
 /**
  * @author wuliang
  * @date 2020/8/3
@@ -12,6 +14,7 @@ public class AdminMenu {
     private String nameZh;
     private String component;
     private int parentId;
+    private List<AdminMenu> children;
 
     public int getId(){
         return id;
@@ -59,5 +62,13 @@ public class AdminMenu {
 
     public void setParentId(int parentId) {
         this.parentId = parentId;
+    }
+
+    public List<AdminMenu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<AdminMenu> children) {
+        this.children = children;
     }
 }

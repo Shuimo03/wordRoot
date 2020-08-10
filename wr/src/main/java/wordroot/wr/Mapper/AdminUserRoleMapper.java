@@ -1,9 +1,6 @@
 package wordroot.wr.Mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import wordroot.wr.bean.AdminUserRole;
 
 import java.util.List;
@@ -19,8 +16,11 @@ public interface AdminUserRoleMapper {
     @Results({
             @Result(property = "uid",column = "uid")
     })
-    List<AdminUserRole> findAllUid();
+    List<AdminUserRole> findAllUid(int uid);
 
     @Delete("delete from admin_user_role where uid = #{uid}")
     void deleteAllUid(int uid);
+
+    @Insert("insert into admin_user_role (id,uid,rid) values (#{id},#{uid},#{rid})")
+    void insert(List list);
 }

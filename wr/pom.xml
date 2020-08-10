@@ -112,7 +112,9 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- lombok -->
+		<!-- lombok
+		编译级别的插件，可以自动生成get/set方法
+		-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

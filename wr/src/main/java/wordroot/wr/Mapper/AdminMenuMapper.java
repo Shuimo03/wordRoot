@@ -3,7 +3,7 @@ package wordroot.wr.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
-import wordroot.wr.bean.User;
+import wordroot.wr.bean.AdminMenu;
 
 import java.util.List;
 
@@ -13,15 +13,21 @@ import java.util.List;
  */
 
 public interface AdminMenuMapper {
-    /**
-     * 查询所有用户
-     */
-    @Select("select * from user")
-    @Results({
-            @Result(property = "username", column = "username")
-    })
-    List<User> getUserAll();
+
+    List<AdminMenu> getUserAll(int id);
 
     @Select("select * from user where id = #{id}")
-    User findById(int id);
+    AdminMenu findById(int id);
+
+
+    /**
+     * 查询所有用户
+     * @param parentId
+     */
+    @Select("select * from admin_menu")
+    @Results({
+            @Result(property = "parent_id",column = "parent_id")
+    })
+    List<AdminMenu> findAllByRid(List<Integer> parentId);
+
 }

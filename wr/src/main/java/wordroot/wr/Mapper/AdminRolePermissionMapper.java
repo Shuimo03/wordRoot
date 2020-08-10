@@ -1,8 +1,6 @@
 package wordroot.wr.Mapper;
 
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import wordroot.wr.bean.AdminRolePermission;
 
 import java.util.List;
@@ -20,5 +18,11 @@ public interface AdminRolePermissionMapper {
     @Results({
             @Result(property = "rid",column = "rid")
     })
-    List<AdminRolePermission>geRidrAll();
+    List<AdminRolePermission>findAllRid(int rid);
+
+    @Delete("select * from where  admin_role_permission rid = #{rid}")
+    void deleteByRid(int rid);
+
+    @Insert("insert into admin_role_permission (id,rid,pid) values(#{id},{#rid},#{pid})")
+    void insert(List list);
 }

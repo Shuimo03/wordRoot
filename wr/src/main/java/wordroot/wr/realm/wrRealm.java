@@ -16,6 +16,7 @@ import java.util.Set;
 public class wrRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
+    @Autowired
 
     //重写获取授权的信息方法
     @Override
