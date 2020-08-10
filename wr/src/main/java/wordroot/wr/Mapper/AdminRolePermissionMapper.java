@@ -18,7 +18,7 @@ public interface AdminRolePermissionMapper {
     @Results({
             @Result(property = "rid",column = "rid")
     })
-    List<AdminRolePermission>findAllRid(int rid);
+    List<AdminRolePermission>findAllRid(List<Integer> rid);
 
     @Delete("select * from where  admin_role_permission rid = #{rid}")
     void deleteByRid(int rid);

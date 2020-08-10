@@ -8,6 +8,7 @@ import wordroot.wr.bean.AdminPermission;
 import wordroot.wr.bean.AdminRolePermission;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ public class AdminRolePermissionService {
     AdminRolePermissionMapper adminRolePermissionMapper;
 
     List<AdminRolePermission> findAllRid(int rid){
-        return adminRolePermissionMapper.findAllRid(rid);
+        return adminRolePermissionMapper.findAllRid(Collections.singletonList(rid));
     }
 
     @Transactional
