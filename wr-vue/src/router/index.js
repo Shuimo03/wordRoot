@@ -5,6 +5,7 @@ import Login from '@/components/Login'
 import SignUp from '@/components/SignUp'
 import About from '@/components/About'
 import Grammar from '@/components/Grammar'
+import Translator from '@/components/Translator'
 Vue.use(Router)
 
 export default new Router({
@@ -32,6 +33,12 @@ export default new Router({
         path: '/grammar',
         name: 'Grammar',
         component:Grammar
+    },
+
+    {
+      path: '/translator',
+      name:'Translator',
+      component:Translator
     },
 
     {
